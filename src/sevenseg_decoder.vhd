@@ -38,6 +38,8 @@ end sevenseg_decoder;
 
 architecture Behavioral of sevenseg_decoder is
 begin
+o_seg_n <= "1111111";
+
 with i_Hex select
 o_seg_n <=
     "1000000" when "0000",
