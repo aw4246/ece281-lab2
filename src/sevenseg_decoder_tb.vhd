@@ -36,18 +36,18 @@ end sevenseg_decoder_tb;
 
 architecture tb of sevenseg_decoder_tb is
     component sevenseg_decoder
-          Port ( i_Hex : in STD_LOGIC_VECTOR (3 downto 0);
+          Port ( w_Hex : in STD_LOGIC_VECTOR (3 downto 0);
            o_seg_n : out STD_LOGIC_VECTOR (6 downto 0)
            );
            end component;
         signal i_Hex : std_logic_vector(3 downto 0);
-        signal o_seg_n : std_logic_vector(6 downto 0);
+        signal w_seg_n : std_logic_vector(6 downto 0);
 
 begin
     DUT : sevenseg_decoder
         port map (
-            i_Hex => i_Hex,
-            o_seg_n => o_seg_n
+            w_Hex => i_Hex,
+            o_seg_n => w_seg_n
             );
             stim_process: process
             begin
