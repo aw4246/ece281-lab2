@@ -32,16 +32,19 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity sevenseg_decoder is
-    Port ( i_Hex : in STD_LOGIC_VECTOR (3 downto 0);
+    Port ( i_btn : std_logic;
+    i_Hex : in STD_LOGIC_VECTOR (3 downto 0);
            o_seg_n : out STD_LOGIC_VECTOR (6 downto 0));
+           
 end sevenseg_decoder;
 
 architecture Behavioral of sevenseg_decoder is
+signal o_seg_out : std_logic_vector (6 downto 0);
 begin
-o_seg_n <= "1111111";
+
 
 with i_Hex select
-o_seg_n <=
+o_seg_out <=
     "1000000" when "0000",
     "1111001" when "0001",
     "0100100" when "0010",
@@ -60,5 +63,7 @@ o_seg_n <=
     "0001110" when "1111",
     "1111111" when others;
 
+o_seg_n <= o_seg_out when i_btn = '1' else "1111111";
 
 end Behavioral;
+
